@@ -1,0 +1,14 @@
+{
+    "name": "Token Logger",
+    "description": "who can guess what it does",
+    "authors": [
+        {
+            "name": "Dziurwa",
+            "id": "787017887877169173"
+        }
+    ],
+    "main": "src/index.ts",
+    "vendetta": {
+        "icon": "ic_badge_staff"
+    }
+}
