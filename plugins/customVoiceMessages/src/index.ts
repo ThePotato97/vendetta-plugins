@@ -7,7 +7,7 @@ const upload = before("uploadLocalFiles", findByProps("uploadLocalFiles"), (args
         args[0].items[0].item.waveform = 'AEtWPyUaGA4OEAcA';
         args[0].items[0].item.durationSecs = 60.0;
         args[0].items[0].waveform = 'AEtWPyUaGA4OEAcA';
-        args[0].items[0].durationSecs = 60.
+        args[0].items[0].durationSecs = 60.0
     }
 });
 export const onUnload = () => upload()
