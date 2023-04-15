@@ -1,0 +1,14 @@
+{
+    "name": "Custom Voice Messages",
+    "description": "Allows Sending any audio/video as a voice message",
+    "authors": [
+        {
+            "name": "Dziurwa",
+            "id": "787017887877169173"
+        }
+    ],
+    "main": "src/index.ts",
+    "vendetta": {
+        "icon": "voice_bar_mute_off"
+    }
+}
