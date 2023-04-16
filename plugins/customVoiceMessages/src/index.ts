@@ -1,13 +1,17 @@
-import { findByProps } from "@vendetta/metro";
-import { before } from "@vendetta/patcher";
+import voiceMessages from "./patches/voiceMessages"
+import { msgCreate, /* msgSuccess */ } from "./patches/allAudioAsVM"
+import { storage } from "@vendetta/plugin";
 
-const upload = before("uploadLocalFiles", findByProps("uploadLocalFiles"), (args) => {
-    if (args[0].items[0].mimeType == "audio/mpeg" || args[0].items[0].mimeType == "audio/ogg") {
-        args[0].flags = 8192;
-        args[0].items[0].item.waveform = 'AEtWPyUaGA4OEAcA';
-        args[0].items[0].item.durationSecs = 60.0;
-        args[0].items[0].waveform = 'AEtWPyUaGA4OEAcA';
-        args[0].items[0].durationSecs = 60.0
-    }
-});
-export const onUnload = () => upload()
+storage.sendAsVM ??= false
+storage.allAsVM ??= false
+storage.showFileName ??= false
+
+const patches = [
+    voiceMessages(),
+    msgCreate(),
+    // msgSuccess()
+];
+
+export const onUnload = () => { patches.forEach(p => p()); }
+
+export { default as settings } from "./settings";
