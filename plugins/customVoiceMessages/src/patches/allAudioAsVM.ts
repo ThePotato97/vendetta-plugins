@@ -15,11 +15,10 @@ const handlers = FluxDispatcher._actionHandlers._orderedActionHandlers;
 // }
 
 export function msgCreate() {
-    return before("actionHandler", handlers.MESSAGE_CREATE?.find(i => i.name === "MessageStore"), (args: any) => {
+    return before("actionHandler", handlers.MESSAGE_CREATE?.find(i => i.name === "MessageStore"), (args) => {
         if (!storage.allAsVM) return;
-        if (args.message.attachments[0]?.content_type?.startsWith("audio")) {
-            args.message.flags = 8192
+        if (args[0].message.attachments[0]?.content_type?.startsWith("audio")) {
+            args[0].message.flags = 8192
         }
-
     })
 }
