@@ -21,18 +21,8 @@ export default () => {
             <FormSwitchRow
                 label="Show every audio file as a Voice Message"
                 leading={<FormIcon source={getAssetIDByName("ic_message_copy")} />}
-                onValueChange={(v) => {
-                    storage.allAsVM = v;
-                }}
+                onValueChange={(v) => (storage.allAsVM = v)}
                 value={storage.allAsVM}
-            />
-            <FormDivider />
-            <FormSwitchRow
-                label="Show file names"
-                subLabel="Show Voice Message files names above the message"
-                leading={<FormIcon source={getAssetIDByName("copy")} />}
-                onValueChange={(v) => (storage.showFileName = v)}
-                value={storage.showFileName}
             />
         </ReactNative.ScrollView>
     );
