@@ -1,5 +1,5 @@
 import voiceMessages from "./patches/voiceMessages"
-import { msgCreate, /* msgSuccess */ } from "./patches/allAudioAsVM"
+import { msgCreate, msgSuccess, msgUpdate } from "./patches/allAudioAsVM"
 import downloadable from "./patches/downloadable"
 import { storage } from "@vendetta/plugin";
 
@@ -9,8 +9,9 @@ storage.allAsVM ??= false
 const patches = [
     voiceMessages(),
     msgCreate(),
+    msgSuccess(),
+    msgUpdate(),
     downloadable()
-    // msgSuccess()
 ];
 
 export const onUnload = () => { patches.forEach(p => p()); }
