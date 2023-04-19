@@ -4,8 +4,8 @@ import { storage } from "@vendetta/plugin";
 
 export function msgSuccess() {
     return before("actionHandler", FluxDispatcher._actionHandlers._computeOrderedActionHandlers("LOAD_MESSAGES_SUCCESS").find(i => i.name === "MessageStore"), (args) => {
+        if (!storage.allAsVM) return;
         args[0].messages.forEach(x => {
-            if (!storage.allAsVM) return;
             x.attachments.forEach(a => {
                 if (a.content_type?.startsWith?.("audio")) {
                     x.flags |= 8192;
