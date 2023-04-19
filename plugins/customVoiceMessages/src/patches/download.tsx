@@ -27,6 +27,7 @@ export default () => before("openLazy", ActionSheet, (ctx) => {
                         leading={<Icon source={getAssetId("ic_download_24px")} />}
                         onPress={async () => {
                             await findByProps("downloadMediaAsset").downloadMediaAsset(message.attachments[0].url, 0)
+                            findByProps("hideActionSheet").hideActionSheet()
                         }}
                     />)
         })

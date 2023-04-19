@@ -4,15 +4,16 @@ import { storage } from "@vendetta/plugin";
 
 export function msgSuccess() {
     return before("actionHandler", FluxDispatcher._actionHandlers._computeOrderedActionHandlers("LOAD_MESSAGES_SUCCESS").find(i => i.name === "MessageStore"), (args) => {
-        if (!storage.allAsVM) return;
         args[0].messages.forEach(x => {
-            x.attachments && x.attachments.forEach(y => {
-                if (y.content_type?.startsWith("audio")) {
-                    x.flags |= 8192;
-                    y.waveform = "AEtWPyUaGA4OEAcA";
-                    y.duration_secs = 60;
-                }
-            })
+            if (storage.allAsVM && x.attachments) {
+                x.attachments.forEach(a => {
+                    if (a.content_type?.startsWith?.("audio")) {
+                        x.flags |= 8192;
+                        a.waveform = "AEtWPyUaGA4OEAcA";
+                        a.duration_secs = 60;
+                    }
+                })
+            }
         });
     })
 }
