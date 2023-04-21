@@ -9,14 +9,13 @@ function getBucket(guildId: string) {
 export default () =>
     before("uploadLocalFiles", findByProps("uploadLocalFiles"), (args) => {
         if (!storage.sendAsVM) return;
-        if (getBucket(findByProps("getLastSelectedGuildId").getGuildId()) == 1) {
-
-            if (args[0].items[0].mimeType.startsWith("audio")) {
+        const guildId = findByProps("getLastSelectedGuildId").getGuildId();
+        if (!guildId || getBucket(guildId) == 1) {
+            const item = args[0].items[0];
+            if (item.mimeType.startsWith("audio")) {
                 args[0].flags = 8192;
-                args[0].items[0].item.waveform = 'AEtWPyUaGA4OEAcA';
-                args[0].items[0].item.durationSecs = 60.0;
-                args[0].items[0].waveform = 'AEtWPyUaGA4OEAcA';
-                args[0].items[0].durationSecs = 60.0
+                item.waveform = item.item.waveform = 'AEtWPyUaGA4OEAcA';
+                item.durationSecs = item.item.durationSecs = 60.0;
             }
         }
     });
