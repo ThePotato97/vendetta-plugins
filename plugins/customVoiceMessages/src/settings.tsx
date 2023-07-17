@@ -12,7 +12,7 @@ export default () => {
     return (
         <ReactNative.ScrollView>
             <FormSwitchRow
-                label="Audio Length"
+                label="Audio Waveform"
                 leading={<FormIcon source={getAssetIDByName("ic_stage_music")} />}
                 onValueChange={(v) => (storage.waveForm = v)}
                 value={storage.waveForm}
