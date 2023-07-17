@@ -13,15 +13,13 @@ export default () => {
         <ReactNative.ScrollView>
             <FormInput required
                 title="Audio Waveform"
-                leading={<FormIcon source={getAssetIDByName("ic_stage_music")} />}
-                onValueChange={(v) => (storage.waveForm = v)}
+                onChangeText={(v) => (storage.waveForm = v)}
                 value={storage.waveForm || "AEtWPyUaGA4OEAcA"}
             />
             <FormDivider />
             <FormInput required
                 title="Audio Length"
-                leading={<FormIcon source={getAssetIDByName("ic_stage_music")} />}
-                onValueChange={(v) => (storage.audioLength = Number(v))}
+                onChangeText={(v) => (storage.audioLength = Number(v))}
                 keyboardType="numeric"
                 value={storage.audioLength || 60}
             />
