@@ -4,7 +4,7 @@ import { getAssetIDByName } from "@vendetta/ui/assets";
 import { storage } from "@vendetta/plugin";
 import { useProxy } from "@vendetta/storage";
 
-const { FormDivider, FormIcon, FormSwitchRow } = Forms;
+const { FormDivider, FormIcon, FormSwitchRow, FormInput } = Forms;
 
 export default () => {
     useProxy(storage);
