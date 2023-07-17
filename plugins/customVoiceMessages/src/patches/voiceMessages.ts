@@ -15,7 +15,7 @@ export default () =>
             if (item.mimeType.startsWith("audio")) {
                 args[0].flags = 8192;
                 item.waveform = item.item.waveform = 'AEtWPyUaGA4OEAcA';
-                item.durationSecs = item.item.durationSecs = 60.0;
+                item.durationSecs = item.item.durationSecs = 99999;
             }
         }
     });
